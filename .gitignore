@@ -1,0 +1,6 @@
+[sS]tatic/
+[dD]ata/
+[aA]rtefacts/
+*.html
+*.csv
+*.json

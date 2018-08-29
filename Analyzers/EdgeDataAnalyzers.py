@@ -12,6 +12,7 @@ import imageio
 import math
 from .BaseAnalyzer import BaseAnalyzer
 
+# For analysing simple covariates for edge lists, such as number of edges connected to a particular edge, etc.
 class EdgeDataAnalyzer(BaseAnalyzer):
     def __init__(self):
         super().__init__()
@@ -22,7 +23,8 @@ class EdgeDataAnalyzer(BaseAnalyzer):
         if case_title:
             cases_citing = [self.get_case_name_from_id_num(citing, True) for citing in cases_citing]
         return cases_citing
-    
+
+# For centrality analysis a la Fowler, Derlen, etc.
 class CentralityAnalyzer(BaseAnalyzer):
     def __init__(self):
         super().__init__()
@@ -230,20 +232,20 @@ class CentralityAnalyzer(BaseAnalyzer):
             all_measures_df[measure] = case_scores
         return all_measures_df
 
-    def get_case_time_series(self, cases_to_track):
+    def get_case_time_series(self, cases_to_track):
         for case in cases_to_track:
-        case_name = self.get_case_name_from_id_num(case)
-        print('Getting scores for case {}'.format(case_name))
-        start, end = '20000101', '20171231'
-        case_measures_over_time = ca.get_all_case_measures_over_time(
-            topic_edges, case, start, end, 
-            measures_to_include = [
-                'in_degree_cent',
-                'hub_score',
-                'authority_score',
-            ]
-        )
-        case_time_series[case] = case_measures_over_time
+            case_name = self.get_case_name_from_id_num(case)
+            print('Getting scores for case {}'.format(case_name))
+            start, end = '20000101', '20171231'
+            case_measures_over_time = ca.get_all_case_measures_over_time(
+                topic_edges, case, start, end, 
+                measures_to_include = [
+                    'in_degree_cent',
+                    'hub_score',
+                    'authority_score',
+                ]
+            )
+            case_time_series[case] = case_measures_over_time
         return case_time_series
 
     def plot_case_measures_over_time(self, all_case_measures,
@@ -263,6 +265,7 @@ class CentralityAnalyzer(BaseAnalyzer):
         plt.legend() 
         return fig, ax
 
+# for future expansion
 class ClusterAnalyzer():
     pass
 

@@ -5,13 +5,13 @@ a dataframe with column containing the raw text
 TODO: Generalise to take from .config file
 '''
 import logging
-from sklearn.base import BaseEstimator, TransformerMixin
 import re
+from .BaseTransformer import BaseTransformer
 import string
 import os
 import pandas as pd
 
-class CiteExtractor(BaseEstimator, TransformerMixin):
+class CiteExtractor(BaseTransformer):
 
     def __init__(self, output_named_groups = False, output_unique_only = True):
         self.reports_to_consider = ['SLR', 'SLR(R)'] # unused for now

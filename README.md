@@ -31,3 +31,7 @@ Otherwise we follow standard issue-pullrequent-review-merge workflow.
 
 * Unit testing not implemented
 * Code does not validate input
+
+## Licence
+
+[GNU v3](https://www.gnu.org/licenses/gpl-3.0.en.html) but always subject to any terms imposed by Singapore Management University on my work, which shall always take precedence over the GNU terms.

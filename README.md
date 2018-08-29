@@ -6,8 +6,8 @@ Functions for legal citations analysis. For enquires contact Jerrold Soh, Singap
 This is a WIP repo for a system that can analyze Singapore reported judgements. Most of the stuff is currently hard-coded to my dataset in the sense that the column header names are written in. System architecture is as follows:
 
 1. Data flows in the following manner:
-  1. INPUT - for now it expects a .csv 
-  1. TRANSFORMERS - essentially functions that extract citations and enrich them with metadata. 
+    1. INPUT - for now it expects a .csv 
+    1. TRANSFORMERS - essentially functions that extract citations and enrich them with metadata. 
   1. ANALYZERS - classes with prebuilt functions that perform typical citations analysis tasks such as get_centrality_scores (including over time for each case). See Fowler and Jeon 2007 "The Authority of Supreme Court Precedent" for theory and examples.
   1. PIPELINES - scripts that instantiate and run classes implemented in TRANSFORMERS and/or ANALYZERS. Pipelines are meant for repetitive set tasks like creating data, testing, etc. Kinda like the poor man's Airflow / ETLs
   1. NOTEBOOKS - notebooks used for data analysis. Similar to pipelines except analysis is way more iterative.

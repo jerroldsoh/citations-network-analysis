@@ -9,6 +9,9 @@ from Transformers.CiteTransformer import CiteTransformer
 from Transformers.EdgeDataTransformer import EdgeDataTransformer 
 from Transformers.MetaDataTransformer import MetaDataTransformer
 
+# usage: python -m Pipelines.create_datasets path\to\parsed_data 
+# (from project root)
+
 def run(infile, meta_out, edge_out):
 	data_from_html_parser = pd.read_csv(infile).set_index('reporter_citation')
 	
@@ -51,6 +54,8 @@ def run(infile, meta_out, edge_out):
 	extracted_metadata.to_csv(os.path.join(os.path.dirname(__file__), '..\\Data\\{}.csv'.format(meta_out)))
 	print('Now saving edge data...')
 	edge_data.to_csv(os.path.join(os.path.dirname(__file__), '..\\Data\\{}.csv'.format(edge_out)), index=False)
+	
+	# Note that these paths are HARDCODED. IMPROVE WHEN YOU HAVE THE TIME
 	print('Now saving reference dicts...')
 	pd.Series(reverse_dict).to_csv(os.path.join(os.path.dirname(__file__), '..\\Data\\ids_to_citations.csv'))
 	extracted_metadata['case_title'].to_csv(

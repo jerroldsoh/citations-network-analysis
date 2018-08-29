@@ -1,4 +1,3 @@
-import logging
 from Transformers.MetaDataTransformer import MetaDataTransformer
 from Transformers.CiteExtractor import CiteExtractor
 from .BaseTransformer import BaseTransformer

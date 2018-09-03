@@ -1,11 +1,9 @@
 import os
 import pandas as pd
-import numpy as np
-import ast
 import argparse
-import networkx as nx # used to find incoming cites quickly
 from Transformers.CiteExtractor import CiteExtractor
-from Transformers.CiteTransformer import CiteTransformer
+
+# usage: python -m Pipelines.test_regex --infile path\to\testdata
 
 def run(infile):
 	data_from_html_parser = pd.read_csv(infile).set_index('reporter_citation')
@@ -14,16 +12,18 @@ def run(infile):
 	ce = CiteExtractor()
 	cites = ce.test_transform(data_from_html_parser)
 	data_from_html_parser['ls_cited_cases'] = cites
-	print(data_from_html_parser['ls_cited_cases'].apply(len).sum())
-	data_from_html_parser.to_csv('test_sgca_regex.csv')
+	print('Printing 5 sample processed cases...')
+	print(data_from_html_parser.sample(5))
 
 	return None
 	
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('infile', help='relative path to lawnet_processor output')
+	parser.add_argument('--infile', help='absolute path to lawnet_processor output',
+		default=None)
 	args = parser.parse_args()
-	return run(args.infile)
+	infile = args.infile if args.infile else os.path.join(os.path.dirname(__file__), '..\\Data\\test_data\\test_html_parser_output.csv')
+	return run(infile)
 
 if __name__ == '__main__':
 	main()

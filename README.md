@@ -22,6 +22,11 @@ This is a WIP repo for a system that can analyze Singapore reported judgements. 
 1. NOTEBOOKS: Usually one notebook for one paper, with code organised in the order that the tables/figures appear (but not always). Expect notebooks to be messy.
 1. ARTEFACTS: Static files like .png and .tex files that should not be pushed to repo
 
+## Trial case:
+1. Supply a parsed .csv to create_datasets and have it output the necessary edgelist and metadata
+1. Try running one of the notebooks
+1. Let me know if there are any errors
+
 ## Repo contribution guide
 
 By invite only for now. Contact jerroldsoh@smu.edu.sg for inquiries.

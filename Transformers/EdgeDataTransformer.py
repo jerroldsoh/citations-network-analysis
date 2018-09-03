@@ -100,7 +100,7 @@ class EdgeDataTransformer(BaseTransformer):
         return edge_df, id_dict, reverse_dict
 
 if __name__ == '__main__':
-    test_df = pd.read_csv(os.path.join(os.path.dirname(__file__), '../Data/test_base_data.csv'))
+    test_df = pd.read_csv(os.path.join(os.path.dirname(__file__), '../Data/test_data/test_html_parser_output.csv'))
     mdt = MetaDataTransformer.MetaDataTransformer()
     transformed_test_df = mdt.fit_transform(test_df)
 

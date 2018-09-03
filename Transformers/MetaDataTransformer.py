@@ -62,7 +62,7 @@ class MetaDataTransformer(BaseTransformer):
         assert transformed_test_df.loc['[2011] 1 SLR 123', 'has_topic_crime']
         assert transformed_test_df.loc['[2011] 1 SLR 123', 'bench'] == 'chan'
 
-        test_df = pd.read_csv(os.path.join(os.path.dirname(__file__), '../Data/test_base_data.csv'))
+        test_df = pd.read_csv(os.path.join(os.path.dirname(__file__), '../Data/test_html_parser_output.csv'))
         transformed_test_df = self.fit_transform(test_df)
         assert transformed_test_df.loc['[2003] 2 SLR(R) 33', 'has_topic_tort']
         assert transformed_test_df.loc['[2003] 2 SLR(R) 33', 'bench'] == 'yong'
